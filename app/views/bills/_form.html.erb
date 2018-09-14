@@ -1,0 +1,39 @@
+<%= form_with(model: bill, local: true) do |form| %>
+  <% if bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :total_amount %>
+    <%= form.text_field :total_amount, id: :bill_total_amount, readonly: :true %>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-md-2">
+            Remove items
+          </th>
+          <th class="col-md-4">Item</th>
+          <th class="col-md-2">Price</th>
+          <th class="col-md-4">Quantity</th>
+        </tr>
+      </thead>
+      <tbody id="items">
+        
+      </tbody>
+    </table>
+  </div>
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>

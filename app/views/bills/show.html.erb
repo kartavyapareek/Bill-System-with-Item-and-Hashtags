@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-md-4">Item</th>
+          <th class="col-md-4">Price</th>
+          <th class="col-md-4">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<% @items.each do |i| %>
+        <tr>
+        	<td><%= i.item.name %></td>
+        	<td><%= i.item.price%></td>
+        	<td><%= i.quantity%></td>
+        </tr>
+        <% end %>
+        <tr>
+        	<th colspan="2">Total Amount ( Inculding 15% Tax )</th>
+        	<td><%=@bill.total_amount%></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<%= link_to 'Back', bills_path %>

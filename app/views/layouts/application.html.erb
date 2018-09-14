@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bill System</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="body">
+  	<header>
+  		<div class="container">
+  			<div class="row header text-center">
+  				Bill System
+  			</div>
+  		</div>
+  	</header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="leftPanel">
+          <% if current_page?(new_bill_path) %>
+            <div class="input-group searchBar">
+              <%= form_with url: search_path, local: true, method: :get, html: {class: "form-inline my-2 my-lg-0"} do |form| %>
+                <%= form.text_field :q, placeholder: 'Select Item To Add', data: { behavior: 'autocomplete'}, class: 'form-control mr-sm-2'%>
+              <% end %>
+            </div>
+            <div class="menuLink"><%= link_to 'Home', root_path %></div>
+            <%else%>
+            <div class="menuLink"><%= link_to 'Home', root_path %></div>
+            <div class="menuLink"><%= link_to 'Create New Bill', new_bill_path %></div>
+            <%end%>
+            <div class="menuLink"><%= link_to 'Bills List', bills_path %></div>
+            <div class="menuLink"><%= link_to 'Items List', items_path %></div>
+          </div>
+        </div>
+        <div class="col-md-9 mainRight">
+          <%= yield %> 
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+// Place all the styles related to the Dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.body {
+	background-color: #76abd2;
+}
+.menuLink {
+	padding-top: 20px;
+  padding-left: 20px;
+}
+.header {
+	padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.logoImage {
+ 	height: 100px;
+}
+
+.leftPanel {
+	background-color: #f3f3f36b;
+	height: 80vh;
+}
+
+.rightPanel {
+	background-color: #f3f3f36b;
+}
+
+.mainRight {
+	background-color: #f3f3f36b;
+	height: 80vh;
+  padding-top: 40px;
+}
+
+.bothPanel {
+	margin-right: 0px;
+  margin-left: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.searchBar {
+	width: 100%;
+}
